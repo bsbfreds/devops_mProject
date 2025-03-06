@@ -1,5 +1,12 @@
 #!/bin/bash
+echo "Stopping existing Node.js server..."
 
-echo "Stopping any existing node servers"
+# Find Node.js process owned by ec2-user
+PID=$(pgrep -u ec2-user -f server.js)
 
-pkill node
+if [ -n "$PID" ]; then
+    echo "Killing Node.js process with PID: $PID"
+    kill -9 $PID
+else
+    echo "No Node.js process found. Skipping stop step."
+fi
