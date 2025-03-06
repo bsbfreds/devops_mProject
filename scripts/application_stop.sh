@@ -6,7 +6,7 @@ PID=$(pgrep -u ec2-user -f server.js)
 
 if [ -n "$PID" ]; then
     echo "Killing Node.js process with PID: $PID"
-    kill -9 $PID
+    sudo kill -9 $PID
 else
     echo "No Node.js process found. Skipping stop step."
 fi
