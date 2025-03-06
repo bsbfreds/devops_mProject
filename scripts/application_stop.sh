@@ -2,4 +2,4 @@
 
 echo "Stopping any existing node servers"
 
-pkill node
+pkill -u ec2-user -f node
